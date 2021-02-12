@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+</head>
+<body>
+<div id="root">
+  <div id="main" class="main gradient-background">
+    <script>
+      // 根据屏幕尺寸决定main的宽度
+      const root = document.getElementById('root')
+      const main = document.getElementById('main')
+      let minButtonWidth = (main.getBoundingClientRect().width - 2 * 20) / 6
+      let buttonBorderRadius = root.getBoundingClientRect().width / 100
+      if (root.getBoundingClientRect().width > root.getBoundingClientRect().height) {
+        const width = root.getBoundingClientRect().height * 9 / 16
+        main.style.width = `${width}px`
+        main.style.fontSize = `${width / 20}px`
+        minButtonWidth = (width - 2 * 20) / 6
+        buttonBorderRadius = width / 100
+      }
+      buttonBorderRadius = buttonBorderRadius < 3 ? 3 : buttonBorderRadius
+    </script>
+    <div class="decorate-1">
+
+    </div>
+    <div class="head">
+      <div style="position: absolute; left: 0; display: flex; align-content: center; justify-content: center">
+        <div>得分：<span id="score"></span></div>
+      </div>
+      <div style="position: absolute; right: 0; display: flex; align-content: center; justify-content: center">
+        <div><div id="retry" class="base-button">重来一次</div></div>
+      </div>
+    </div>
+    <div id="stage" class="body">
+      <canvas id="stage-canvas" style="width: 100%; height: 100%">
+
+      </canvas>
+    </div>
+    <div class="foot">
+      <div class="opt-button-container" style="float:left;">
+        <div class="base-button" id="left-move">
+          <img src="./left.svg" style="width: 30%" />
+        </div>
+      </div>
+      <div class="opt-button-container" style="float:left; margin-left: 10px">
+        <div class="base-button" id="left-up">
+          <img src="./corner-left-up.svg" style="width: 30%" />
+        </div>
+      </div>
+      <div class="opt-button-container" style="float:right;">
+        <div class="base-button" id="right-move">
+          <img src="./right.svg" style="width: 30%" />
+        </div>
+      </div>
+      <div class="opt-button-container" style="float:right; margin-right: 10px">
+        <div class="base-button" id="right-up">
+          <img src="./corner-right-up.svg" style="width: 30%" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.querySelectorAll('.base-button').forEach(button => {
+    button.style.minWidth = `${minButtonWidth}px`
+    button.style.borderRadius = `${buttonBorderRadius}px`
+  })
+  const leftButton = document.querySelector('#left-move')
+  const rightButton = document.querySelector('#right-move')
+  const leftUpButton = document.querySelector('#left-up')
+  const rightUpButton = document.querySelector('#right-up')
+  for (let button of [leftButton, rightButton, leftUpButton, rightUpButton]) {
+    button.style.maxWidth = `${minButtonWidth}px`
+  }
+  console.log(`minButtonWidth: ${minButtonWidth}, main width: ${main.getBoundingClientRect().width}, main padding: ${main.style.paddingRight}`)
+</script>
+<script src="./dist/bundle.js"></script>
+</body>
+</html>

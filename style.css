@@ -1,0 +1,117 @@
+.gradient-background {
+  background: -webkit-linear-gradient(right bottom, #279C8F, #8DE5DC);
+}
+
+body {
+  margin: 0
+}
+
+.main {
+  /*background: #bae7ff;*/
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
+  font-size: 5vw;
+  user-select: none;
+  padding: 0 20px 0 20px;
+  color: #08979c;
+  position: relative;
+  overflow: hidden;
+}
+
+.head {
+  height: 12%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.foot {
+  height: 12%;
+  width: 100%;
+  /*display: flex;*/
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.body {
+  height: 76%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.base-button {
+  position: relative;
+  font-size: inherit;
+  background: none;
+  border-radius: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 10px 3px 10px;
+  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.12), 0 5px 6px -4px rgba(0, 0, 0, 0.09);
+  overflow: hidden;
+  height: fit-content;
+}
+
+.base-button:active {
+  background: #e6f7ff;
+  transition: 300ms;
+  opacity: 0.25;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#stage {
+  z-index: 2;
+}
+
+#stage-canvas {
+  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.12), 0 5px 6px -4px rgba(0, 0, 0, 0.09);
+  border-radius: 5px;
+}
+
+.decorate-1 {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  border-radius: 50%;
+  background: #8DE5DC;
+  /*opacity: 0.65;*/
+  right: -12%;
+  top: -15%;
+  box-shadow: inset 6px 6px 30px #FFF;
+}
+
+.decorate-1:before {
+  content: "";
+  display: inline-block;
+  padding-bottom: 100%;
+}
+
+.opt-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%
+}
+
+
